@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{84E967E8-DEE7-4801-8600-646A650EB3B8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ch.wuerth.tobias.WebCrawler.Infrastructure.UserInterface</RootNamespace>
+    <AssemblyName>ch.wuerth.tobias.WebCrawler.Infrastructure.UserInterface</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>spider.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack, Version=1.4.6.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\HtmlAgilityPack.1.4.6\Net40\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controller\CrawlingInstance.cs" />
+    <Compile Include="Controller\FormWebCrawlerController.cs" />
+    <Compile Include="Controller\WebpageHttpHandler.cs" />
+    <Compile Include="FormSplashscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplashscreen.Designer.cs">
+      <DependentUpon>FormSplashscreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStop.Designer.cs">
+      <DependentUpon>FormStop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWebCrawler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWebCrawler.Designer.cs">
+      <DependentUpon>FormWebCrawler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IFormWebCrawler.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormSplashscreen.resx">
+      <DependentUpon>FormSplashscreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStop.resx">
+      <DependentUpon>FormStop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWebCrawler.resx">
+      <DependentUpon>FormWebCrawler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebCrawler.DomainModel.Entities\WebCrawler.DomainModel.Entities.csproj">
+      <Project>{b6d593e9-09a5-416c-b765-79ca04ae738a}</Project>
+      <Name>WebCrawler.DomainModel.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebCrawler.DomainService.Interfaces\WebCrawler.DomainService.Interfaces.csproj">
+      <Project>{5A778E9D-B4DA-4E4F-A88C-E59D3A5638B1}</Project>
+      <Name>WebCrawler.DomainService.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebCrawler.Infrastructure.Database\WebCrawler.Infrastructure.Database.csproj">
+      <Project>{040486dd-5ee4-4de3-bd4b-3e60dfbc9446}</Project>
+      <Name>WebCrawler.Infrastructure.Database</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ball_green.png" />
+    <None Include="Resources\ball_gray.png" />
+    <Content Include="spider.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
